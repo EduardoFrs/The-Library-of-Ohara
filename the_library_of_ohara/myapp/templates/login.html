@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'images/Icon.png' %}">
+    <link rel="stylesheet" href="{% static 'styles-login.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- Header -->
+<header>
+    <div class="logo">
+        <a href="/"><img src="{% static 'images/Icon.png' %}" alt="Logo" width="70px" height="70px"></a>
+    </div>
+    <p>The Library of Ohara</p>
+    <nav>
+        <a href="{% url 'index' %}"><h2>Home</h2></a>
+    </nav>
+</header>
+
+    <!-- Main -->
+<main>
+    <div class="box">
+    <form id="login-form" method="post">
+        {% csrf_token %}
+        <h1>Login</h1>
+        <div class="input-box">
+            <label for="Username"></label>
+            <input type="text" name="Username" placeholder="Username" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <label for="password"></label>
+            <input type="password"name="password" placeholder="Password" required>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="remember-me">
+            <label><input type="checkbox" name="checkbox" id="checkbox"> Remember me</label>
+        </div>
+        <div class="button-container">
+            <button type="submit" class="button-login">Login</button>
+        </div>
+        <div class="register-link">
+            <p>Don't have an account ? <a href="{% url 'register' %}">Register Now</a></p>
+        </div>
+    </form>
+    </div>
+</main>
+
+    <!-- Footer -->
+<footer>
+    <p>© 2024 Portfolio Project - The Library of Ohara - All rights reserved.</p>
+</footer>
+</body>
+</html>

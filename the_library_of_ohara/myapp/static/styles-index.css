@@ -1,0 +1,329 @@
+/* Général */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1rem;
+    padding-top: calc(4rem + 1rem);
+    box-sizing: border-box;
+}
+
+footer {
+    text-align: center;
+    color: #333;
+    backdrop-filter: blur(20px);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    color: #333;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+header .logo {
+    margin-right: 1rem;
+}
+
+header p {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 1rem 0 0 0;
+}
+
+nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    margin-right: 0.75rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.search-bar input {
+    width: 0;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    padding: 0 0 0 15px;
+    border-radius: 30px;
+    transition: 0.8s;
+}
+
+.search-bar i {
+    font-size: 20px;
+    position: absolute;
+    color: #333;
+    right: 10px;
+    transition: 0.8s;
+}
+
+.search-bar:hover {
+    width: 300px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.search-bar:hover input {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.search-bar:hover i {
+    opacity: 1;
+}
+
+/* Menu */
+.menu {
+    font-size: 16px;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    position: fixed;
+    top: 4rem;
+    bottom: 1rem;
+    left: 0;
+    background-color: #fff;
+    border-right: 1px solid #ccc;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu .link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 36px;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: background-color 0.48s, color 0.48s;
+}
+
+.menu .link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.48s;
+}
+
+.menu .link svg {
+    width: 14px;
+    height: 14px;
+    fill: #000;
+    transition: fill 0.48s, transform 0.48s;
+}
+
+.menu .item {
+    position: relative;
+}
+
+/* Affichage du sous-menu de niveau 1 */
+.menu .submenu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 0 0 16px 16px;
+    background-color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity 0.48s, transform 0.48s, visibility 0.48s;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.menu .item:hover .submenu {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Sous-menu de niveau 2 */
+.submenu .submenu-level-2 {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+
+.submenu .submenu-item:hover .submenu-level-2 {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Liens du sous-menu de niveau 1 */
+.submenu .submenu-item {
+    width: 100%;
+    position: relative;
+}
+
+/* Liens du sous-menu de niveau 2 */
+.submenu .submenu-level-2 .submenu-item {
+    width: 100%;
+}
+
+.submenu .submenu-link,
+.submenu .submenu-level-2 .submenu-link {
+    display: block;
+    padding: 12px 24px;
+    text-align: center;
+    position: relative;
+    transition: color 0.48s;
+}
+
+.submenu .submenu-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: #1118d9;
+    transition: transform 0.48s;
+}
+
+.submenu .submenu-link:hover::before,
+.submenu .submenu-level-2 .submenu-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
+.submenu .submenu-link:hover,
+.submenu .submenu-level-2 .submenu-link:hover {
+    color: #fff;
+}
+
+/* Couleurs spécifiques pour chaque sous-menu de niveau 2 */
+.submenu-item-finish .submenu-link::before {
+    background-color: #ec2323;
+}
+
+.submenu-item-currently .submenu-link::before {
+    background-color: #35bc5e;
+}
+
+.submenu-item-pause .submenu-link::before {
+    background-color: #e27318;
+}
+
+.submenu-item-begin .submenu-link::before {
+    background-color: #cfca6d;
+}
+
+
+/* Bouton new category */
+.submenu-newcategory {
+    text-align: center;
+    padding: 12px 36px;
+}
+
+.submenu-newcategory input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.submenu-newcategory button {
+    background-color: #7197bf;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
