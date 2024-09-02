@@ -1,7 +1,7 @@
 """
 URL configuration for the_library_of_ohara project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+The urlpatterns list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
 Examples:
 Function views
@@ -27,5 +27,7 @@ urlpatterns = [
     path('login/', views.user_login, name='login'),
     path('register/', views.register, name='register'),
     path('logout/', views.user_logout, name='logout'),
+    path('create-category/', views.create_category, name='create_category'),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+
 
