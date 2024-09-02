@@ -10,6 +10,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+
     <!-- Header -->
     <header>
         <div class="logo">
@@ -31,6 +32,7 @@
             {% endif %}
         </nav>
     </header>
+
     <!-- Main -->
     <main>
         <div class="menu">
@@ -109,12 +111,22 @@
                     </div>
                     <div class="submenu-newcategory">
                         <button id="add-category-btn" class="submenu-link">New Category</button>
-                        <input type="text" id="new-category-name" placeholder="Enter category name" style="display: none;">
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Modal for add new category -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Category</h2>
+            <input type="text" id="new-category-name" placeholder="Enter category name">
+            <button id="save-category-btn">Save</button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <p>© 2024 Portfolio Project - The Library of Ohara - All rights reserved.</p>
