@@ -1,0 +1,18 @@
+<!-- anime_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ anime.title.romaji }}</title>
+</head>
+<body>
+    <h1>{{ anime.title.romaji }}</h1>
+    <h2>{{ anime.title.english }}</h2>
+    <img src="{{ anime.coverImage.large }}" alt="{{ anime.title.romaji }}">
+    <p>Episodes: {{ anime.episodes }}</p>
+    <p>Status: {{ anime.status }}</p>
+    <p>Score: {{ anime.averageScore }}</p>
+    <p>Genres: {{ anime.genres|join:", " }}</p>
+    <p>Description: {{ anime.description }}</p>
+</body>
+</html>

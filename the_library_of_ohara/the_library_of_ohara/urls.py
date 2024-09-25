@@ -28,6 +28,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('logout/', views.user_logout, name='logout'),
     path('create-category/', views.create_category, name='create_category'),
+    path('anime/<int:anime_id>/', views.anime_detail, name='anime_detail'),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
 
 

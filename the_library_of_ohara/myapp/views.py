@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from .forms import UserRegistrationForm
 from .models import Category
+from .api import fetch_anime_by_id
 import json
 
 def index(request):
@@ -51,3 +52,6 @@ def create_category(request):
             return JsonResponse({'success': False, 'error': 'No category name provided.'})
     return JsonResponse({'success': False, 'error': 'Invalid request method.'}, status=400)
 
+def anime_detail(request, anime_id):
+    anime_data = fetch_anime_by_id(anime_id)
+    return render(request, 'anime_details.html', {'anime': anime_data})
