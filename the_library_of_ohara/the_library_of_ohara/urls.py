@@ -24,11 +24,13 @@ from myapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('manga/', views.manga, name='manga'),
+    path('anime/', views.anime, name='anime'),
+    path('serie/', views.serie, name='serie'),
+    path('movie/', views.movie, name='movie'),
     path('login/', views.user_login, name='login'),
     path('register/', views.register, name='register'),
     path('logout/', views.user_logout, name='logout'),
     path('create-category/', views.create_category, name='create_category'),
     path('anime/<int:anime_id>/', views.anime_detail, name='anime_detail'),
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
-
-

@@ -8,8 +8,26 @@ from .models import Category
 from .api import fetch_anime_by_id
 import json
 
+
+
+"""Main pages for each categories"""
 def index(request):
     return render(request, 'index.html')
+
+def manga(request):
+    return render(request, 'mainPages/manga.html')
+
+def anime(request):
+    return render(request, 'mainPages/anime.html')
+
+def serie(request):
+    return render(request, 'mainPages/serie.html')
+
+def movie(request):
+    return render(request, 'mainPages/movie.html')
+
+
+
 
 def register(request):
     if request.method == 'POST':
