@@ -14,5 +14,6 @@
     <p>Score: {{ anime.averageScore }}</p>
     <p>Genres: {{ anime.genres|join:", " }}</p>
     <p>Description: {{ anime.description }}</p>
+    <a href="{% url 'anime' %}">Return to the list of animes</a>
 </body>
 </html>

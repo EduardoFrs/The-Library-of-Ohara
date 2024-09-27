@@ -5,29 +5,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModal = document.querySelector('#categoryModal .close');
     const saveCategoryBtn = document.getElementById('save-category-btn');
 
-    // Afficher le modal
     addCategoryBtn.addEventListener('click', function() {
         modal.style.display = 'block';
     });
 
-    // Fermer le modal en cliquant sur la croix
     closeModal.addEventListener('click', function() {
         modal.style.display = 'none';
     });
 
-    // Fermer le modal en cliquant en dehors de celui-ci
     window.addEventListener('click', function(event) {
         if (event.target == modal) {
             modal.style.display = 'none';
         }
     });
 
-    // Créer une nouvelle catégorie en cliquant sur le bouton de sauvegarde
     saveCategoryBtn.addEventListener('click', function() {
         createNewCategory();
     });
 
-    // Créer une nouvelle catégorie en appuyant sur Entrée
     categoryNameInput.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             event.preventDefault();

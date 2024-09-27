@@ -115,6 +115,30 @@
                 </div>
             </div>
         </div>
+
+        <h1>Anime List</h1>
+
+        <div>
+            {% for anime in anime_page.media %}
+                <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                    <h2>{{ anime.title.romaji }}</h2>
+                    <h3>{{ anime.title.english }}</h3>
+                    <img src="{{ anime.coverImage.large }}" alt="{{ anime.title.romaji }}" width="200">
+                    <a href="{% url 'anime_detail' anime.id %}">View Details</a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        <div>
+            {% if anime_page.pageInfo.currentPage > 1 %}
+                <a href="?page={{ anime_page.pageInfo.currentPage|add:"-1" }}">Previous</a>
+            {% endif %}
+
+            {% if anime_page.pageInfo.hasNextPage %}
+                <a href="?page={{ anime_page.pageInfo.currentPage|add:"1" }}">Next</a>
+            {% endif %}
+        </div>
     </main>
 
     <!-- Modal for add new category -->

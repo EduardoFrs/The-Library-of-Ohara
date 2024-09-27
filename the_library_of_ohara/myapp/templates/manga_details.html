@@ -1,0 +1,20 @@
+<!-- manga_details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ manga.title.romaji }}</title>
+</head>
+<body>
+    <h1>{{ manga.title.romaji }}</h1>
+    <h2>{{ manga.title.english }}</h2>
+    <img src="{{ manga.coverImage.large }}" alt="{{ manga.title.romaji }}">
+    <p>Chapter: {{ manga.chapters }}</p>
+    <p>Status: {{ manga.status }}</p>
+    <p>Score: {{ manga.averageScore }}</p>
+    <p>Genres: {{ manga.genres|join:", " }}</p>
+    <p>Description: {{ manga.description }}</p>
+    <a href="{% url 'manga' %}">Return to the list of mangas</a>
+</body>
+</html>

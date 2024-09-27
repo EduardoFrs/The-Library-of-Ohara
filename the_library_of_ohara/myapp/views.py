@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from .forms import UserRegistrationForm
 from .models import Category
-from .api import fetch_anime_by_id
+from .api import fetch_anime_by_id, fetch_anime_list, fetch_manga_by_id, fetch_manga_list
 import json
 
 
@@ -15,10 +15,14 @@ def index(request):
     return render(request, 'index.html')
 
 def manga(request):
-    return render(request, 'mainPages/manga.html')
+    page = request.GET.get('page', 1)
+    manga_data = fetch_manga_list(page=int(page))
+    return render(request, 'mainPages/manga.html', {'manga_page': manga_data})
 
 def anime(request):
-    return render(request, 'mainPages/anime.html')
+    page = request.GET.get('page', 1)
+    anime_data = fetch_anime_list(page=int(page))
+    return render(request, 'mainPages/anime.html', {'anime_page': anime_data})
 
 def serie(request):
     return render(request, 'mainPages/serie.html')
@@ -70,6 +74,12 @@ def create_category(request):
             return JsonResponse({'success': False, 'error': 'No category name provided.'})
     return JsonResponse({'success': False, 'error': 'Invalid request method.'}, status=400)
 
+
 def anime_detail(request, anime_id):
     anime_data = fetch_anime_by_id(anime_id)
     return render(request, 'anime_details.html', {'anime': anime_data})
+
+def manga_detail(request, manga_id):
+    manga_data = fetch_manga_by_id(manga_id)
+    return render(request, 'manga_details.html', {'manga': manga_data})
+

@@ -115,6 +115,30 @@
                 </div>
             </div>
         </div>
+
+        <h1>Manga List</h1>
+
+        <div>
+            {% for manga in manga_page.media %}
+                <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                    <h2>{{ manga.title.romaji }}</h2>
+                    <h3>{{ manga.title.english }}</h3>
+                    <img src="{{ manga.coverImage.large }}" alt="{{ manga.title.romaji }}" width="200">
+                    <a href="{% url 'manga_detail' manga.id %}">View Details</a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        <div>
+            {% if manga_page.pageInfo.currentPage > 1 %}
+                <a href="?page={{ manga_page.pageInfo.currentPage|add:"-1" }}">Previous</a>
+            {% endif %}
+
+            {% if manga_page.pageInfo.hasNextPage %}
+                <a href="?page={{ manga_page.pageInfo.currentPage|add:"1" }}">Next</a>
+            {% endif %}
+        </div>
     </main>
 
     <!-- Modal for add new category -->
