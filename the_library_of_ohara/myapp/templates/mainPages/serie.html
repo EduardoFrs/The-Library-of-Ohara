@@ -35,87 +35,113 @@
 
     <!-- Main -->
     <main>
-        <div class="menu">
-            <div class="item">
-                <a href="#" class="link">
-                    <span>Your Collection</span><i class='bx bx-book'></i>
-                </a>
-                <div class="submenu">
-                    <div class="submenu-item">
-                        <a href="#" class="submenu-link">Manga</a>
-                        <div class="submenu-level-2">
-                            <div class="submenu-item-finish">
-                                <a href="#" class="submenu-link">Finish</a>
+        <div class="sidebar">
+                <div class="menu">
+                    <div class="item">
+                        <a href="#" class="link">
+                            <span>Your Collection</span><i class='bx bx-book'></i>
+                        </a>
+                        <div class="submenu">
+                            <div class="submenu-item">
+                                <a href="#" class="submenu-link">Manga</a>
+                                <div class="submenu-level-2">
+                                    <div class="submenu-item-finish">
+                                        <a href="#" class="submenu-link">Finish</a>
+                                    </div>
+                                    <div class="submenu-item-currently">
+                                        <a href="#" class="submenu-link">Currently</a>
+                                    </div>
+                                    <div class="submenu-item-pause">
+                                        <a href="#" class="submenu-link">Pause</a>
+                                    </div>
+                                    <div class="submenu-item-begin">
+                                        <a href="#" class="submenu-link">To Begin</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="submenu-item-currently">
-                                <a href="#" class="submenu-link">Currently</a>
+                            <div class="submenu-item">
+                                <a href="#" class="submenu-link">Anime</a>
+                                <div class="submenu-level-2">
+                                    <div class="submenu-item-finish">
+                                        <a href="#" class="submenu-link">Finish</a>
+                                    </div>
+                                    <div class="submenu-item-currently">
+                                        <a href="#" class="submenu-link">Currently</a>
+                                    </div>
+                                    <div class="submenu-item-pause">
+                                        <a href="#" class="submenu-link">Pause</a>
+                                    </div>
+                                    <div class="submenu-item-begin">
+                                        <a href="#" class="submenu-link">To Begin</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="submenu-item-pause">
-                                <a href="#" class="submenu-link">Pause</a>
+                            <div class="submenu-item">
+                                <a href="#" class="submenu-link">Serie</a>
+                                <div class="submenu-level-2">
+                                    <div class="submenu-item-finish">
+                                        <a href="#" class="submenu-link">Finish</a>
+                                    </div>
+                                    <div class="submenu-item-currently">
+                                        <a href="#" class="submenu-link">Currently</a>
+                                    </div>
+                                    <div class="submenu-item-pause">
+                                        <a href="#" class="submenu-link">Pause</a>
+                                    </div>
+                                    <div class="submenu-item-begin">
+                                        <a href="#" class="submenu-link">To Begin</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="submenu-item-begin">
-                                <a href="#" class="submenu-link">To Begin</a>
+                            <div class="submenu-item">
+                                <a href="#" class="submenu-link">Movie</a>
+                                <div class="submenu-level-2">
+                                    <div class="submenu-item-finish">
+                                        <a href="#" class="submenu-link">Finish</a>
+                                    </div>
+                                    <div class="submenu-item-currently">
+                                        <a href="#" class="submenu-link">Currently</a>
+                                    </div>
+                                    <div class="submenu-item-pause">
+                                        <a href="#" class="submenu-link">Pause</a>
+                                    </div>
+                                    <div class="submenu-item-begin">
+                                        <a href="#" class="submenu-link">To Begin</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="submenu-newcategory">
+                                <button id="add-category-btn" class="submenu-link">New Category</button>
                             </div>
                         </div>
                     </div>
-                    <div class="submenu-item">
-                        <a href="#" class="submenu-link">Anime</a>
-                        <div class="submenu-level-2">
-                            <div class="submenu-item-finish">
-                                <a href="#" class="submenu-link">Finish</a>
-                            </div>
-                            <div class="submenu-item-currently">
-                                <a href="#" class="submenu-link">Currently</a>
-                            </div>
-                            <div class="submenu-item-pause">
-                                <a href="#" class="submenu-link">Pause</a>
-                            </div>
-                            <div class="submenu-item-begin">
-                                <a href="#" class="submenu-link">To Begin</a>
-                            </div>
+                </div>
+
+            <!-- Library Menu -->
+            <div class="lib-menu">
+                <div class="item">
+                    <a href="#" class="link">
+                        <span>The Library</span><i class='bx bx-book'></i>
+                    </a>
+                    <div class="lib-submenu">
+                        <div class="lib-submenu-item">
+                            <a href="{% url 'manga' %}" class="lib-submenu-link">Manga</a>
                         </div>
-                    </div>
-                    <div class="submenu-item">
-                        <a href="#" class="submenu-link">Serie</a>
-                        <div class="submenu-level-2">
-                            <div class="submenu-item-finish">
-                                <a href="#" class="submenu-link">Finish</a>
-                            </div>
-                            <div class="submenu-item-currently">
-                                <a href="#" class="submenu-link">Currently</a>
-                            </div>
-                            <div class="submenu-item-pause">
-                                <a href="#" class="submenu-link">Pause</a>
-                            </div>
-                            <div class="submenu-item-begin">
-                                <a href="#" class="submenu-link">To Begin</a>
-                            </div>
+                        <div class="lib-submenu-item">
+                            <a href="{% url 'anime' %}" class="lib-submenu-link">Anime</a>
                         </div>
-                    </div>
-                    <div class="submenu-item">
-                        <a href="#" class="submenu-link">Movie</a>
-                        <div class="submenu-level-2">
-                            <div class="submenu-item-finish">
-                                <a href="#" class="submenu-link">Finish</a>
-                            </div>
-                            <div class="submenu-item-currently">
-                                <a href="#" class="submenu-link">Currently</a>
-                            </div>
-                            <div class="submenu-item-pause">
-                                <a href="#" class="submenu-link">Pause</a>
-                            </div>
-                            <div class="submenu-item-begin">
-                                <a href="#" class="submenu-link">To Begin</a>
-                            </div>
+                        <div class="lib-submenu-item">
+                            <a href="{% url 'serie' %}" class="lib-submenu-link">Serie</a>
                         </div>
-                    </div>
-                    <div class="submenu-newcategory">
-                        <button id="add-category-btn" class="submenu-link">New Category</button>
+                        <div class="lib-submenu-item">
+                            <a href="{% url 'movie' %}" class="lib-submenu-link">Movie</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+
+        <h1>Serie List</h1>
 
     <!-- Modal for add new category -->
     <div id="categoryModal" class="modal">
