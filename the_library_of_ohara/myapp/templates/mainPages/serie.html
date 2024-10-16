@@ -142,6 +142,19 @@
         </div>
 
         <h1>Serie List</h1>
+        {% if series %}
+            <ul>
+                {% for serie in series %}
+                    <li>
+                        <img src="https://image.tmdb.org/t/p/w500{{ serie.poster_path }}" alt="{{ serie.title }}" width="100">
+                        <h2>{{ serie.name }}</h2>
+                        <a href="https://www.themoviedb.org/serie/{{ serie.id }}" target="_blank">See more on TMDB</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No series found.</p>
+        {% endif %}
 
     <!-- Modal for add new category -->
     <div id="categoryModal" class="modal">

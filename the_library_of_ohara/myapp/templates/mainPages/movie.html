@@ -141,7 +141,22 @@
             </div>
         </div>
 
-        <h1>Movie List</h1>
+            <h1>Movie List</h1>
+            {% if movies %}
+                <ul>
+                    {% for movie in movies %}
+                        <li>
+                            <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" width="100">
+                            <h2>{{ movie.title }}</h2>
+                            <a href="https://www.themoviedb.org/movie/{{ movie.id }}" target="_blank">See more on TMDB</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No movies found.</p>
+            {% endif %}
+
+    </main>
 
     <!-- Modal for add new category -->
     <div id="categoryModal" class="modal">

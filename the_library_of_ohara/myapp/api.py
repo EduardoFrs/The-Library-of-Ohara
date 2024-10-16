@@ -173,3 +173,34 @@ def fetch_manga_list(page=1, per_page=10):
         return response.json().get('data').get('Page')
     else:
         return None
+
+
+"""Movie / Serie, TMDB API"""
+
+def movie_list(request):
+    api_key = 'a863027759d28f0abab4b6264f23607f'
+    url = f'https://api.themoviedb.org/3/movie/popular?api_key={api_key}&language=fr-FR&page=1'
+
+    response = requests.get(url)
+    data = response.json()
+
+    if data.get('results'):
+        movies = data['results']
+    else:
+        movies = []
+
+    return movies
+
+def serie_list(request):
+    api_key = 'a863027759d28f0abab4b6264f23607f'
+    url = f'https://api.themoviedb.org/3/tv/popular?api_key={api_key}&language=fr-FR&page=1'
+
+    response = requests.get(url)
+    data = response.json()
+
+    if data.get('results'):
+        series = data['results']
+    else:
+        series = []
+
+    return series

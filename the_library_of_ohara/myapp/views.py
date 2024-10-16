@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from .forms import UserRegistrationForm
 from .models import Category
-from .api import fetch_anime_by_id, fetch_anime_list, fetch_manga_by_id, fetch_manga_list
+from .api import fetch_anime_by_id, fetch_anime_list, fetch_manga_by_id, fetch_manga_list, movie_list, serie_list
 import json
 
 
@@ -25,10 +25,12 @@ def anime(request):
     return render(request, 'mainPages/anime.html', {'anime_page': anime_data})
 
 def serie(request):
-    return render(request, 'mainPages/serie.html')
+    series = serie_list(request)
+    return render(request, 'mainPages/serie.html', {'series': series})
 
 def movie(request):
-    return render(request, 'mainPages/movie.html')
+    movies = movie_list(request)
+    return render(request, 'mainPages/movie.html', {'movies': movies})
 
 
 
