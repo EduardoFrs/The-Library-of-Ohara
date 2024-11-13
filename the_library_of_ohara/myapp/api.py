@@ -134,7 +134,7 @@ def fetch_manga_by_id(manga_id):
         return None
 
 
-def fetch_manga_list(page=1, per_page=10):
+def fetch_manga_list(page=1, per_page=50):
     query = """
     query ($page: Int, $perPage: Int) {
         Page(page: $page, perPage: $perPage) {

@@ -10,50 +10,35 @@ html {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-body {
+main {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    min-height: 100vh;
-    background-color: #fff;
-    color: #333;
-    margin: 0;
-}
-
-main {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
     width: 100%;
-    height: 100%;
+    flex-grow: 1;
     padding: 1rem;
-    padding-top: calc(4rem + 1rem);
     box-sizing: border-box;
 }
 
-.sidebar {
-    position: fixed;
-    top: 4.5rem;
-    bottom: 1rem;
-    left: 0;
-    width: 250px;
-    padding: 1rem;
-    border-right: 1px solid #ccc;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
 }
 
-
 footer {
-    text-align: center;
+    display: flex; /* Enable flexbox for the footer */
+    justify-content: space-between; /* Space between content in the footer */
+    align-items: center; /* Vertically center content */
     color: #333;
     backdrop-filter: blur(20px);
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    margin-top: auto;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-social {
+    margin-left: auto;
 }
 
 header {
@@ -64,12 +49,12 @@ header {
     padding: 1rem;
     align-items: center;
     width: 100%;
-    position: fixed;
     top: 0;
     left: 0;
     border-bottom: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    list-style: none;
 }
 
 header .logo {
@@ -92,59 +77,365 @@ nav {
 nav a {
     color: #333;
     text-decoration: none;
-    margin-right: 0.75rem;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
-.search-bar {
-    position: relative;
+/* Homepage section */
+.homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+
+/* Category section */
+
+.category {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.category a {
+    color: #333;
+    text-decoration: none;
+}
+
+ul.row {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.col-1-3, .col-1-2 {
+    width: 50%;
+}
+
+[class^="col-"] {
+    float: left;
+    padding: 0.5rem;
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-category .card-title {
+    margin: 0;
+}
+
+.card-category a {
+    display: block;
+    padding: 2rem;
+    background-color: #f3f3f3;
+    text-align: center;
+}
+
+.card-category a:hover {
+    color: #ffffff;
+    background-color: #090909;
+    text-decoration: none;
+}
+
+/* most-popular content section */
+
+.most-popular {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    width: 100%;
+}
+
+.most-popular .container {
+    width: 90%;
+}
+
+
+.most-popular ul.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.col-1-3 {
+    flex: 1 1 calc(33.33% - 1rem);
+}
+
+/* Article styling */
+article.card-blog {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+article.card-blog:hover {
+    transform: translateY(-5px);
+}
+
+.card-blog img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.card-blog .card-category {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+}
+
+.card-blog h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.card-blog p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card-blog small {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* Waiting section */
+
+.waiting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    width: 100%;
+}
+
+.waiting h2.section-title {
+    margin-bottom: 0;
+}
+
+.waiting p.section-tagline {
+    margin-bottom: 2rem;
+}
+
+.waiting .container {
+    width: 90%;
+}
+
+.waiting ul.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.waiting .col-1-3 {
+    flex: 1 1 calc(33.33% - 1rem);
+}
+
+.card-waiting {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card-waiting:hover {
+    transform: translateY(-5px);
+}
+
+.card-waiting .card-avatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+}
+
+.card-waiting .card-quote {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card-waiting .card-quote cite {
+    display: block;
+    padding-top: 1rem;
+    color: #d73953;
+    font-style: normal;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    color: #090909;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section-tagline {
+    color: #d73953;
+    font-family: 'Raleway', Helvetica Neue, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* About Us section */
+
+.about-us {
+    padding: 4rem 0;
+}
+
+.about-us .container {
+    width: 90%;
+    margin: auto;
+}
+
+.about-us .row {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    transition: width 0.5s ease, height 0.5s ease;
+    gap: 2rem;
 }
 
-.search-bar input {
-    width: 0;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-weight: 500;
-    padding: 0 0 0 15px;
-    border-radius: 30px;
-    transition: 0.8s;
+.about-us .col-1-2 {
+    flex: 1;
 }
 
-.search-bar i {
-    font-size: 20px;
-    position: absolute;
+.about-us img {
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-left: 5rem;
+}
+
+
+.about-us h3 {
+    font-size: 1.8rem;
     color: #333;
-    right: 10px;
-    transition: 0.8s;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.search-bar:hover {
-    width: 300px;
-    height: 50px;
-    border-radius: 25px;
+.about-us p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
 }
 
-.search-bar:hover input {
-    width: 100%;
-    padding: 0 15px;
+/* Contact section */
+
+.contact {
+    padding: 4rem 0;
+    text-align: center;
 }
 
-.search-bar:hover i {
-    opacity: 1;
+.contact .container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
 }
+
+.contact h2.section-title {
+    margin-bottom: 0;
+}
+
+.contact p.section-tagline {
+    margin-bottom: 2rem;
+}
+
+
+
+
+.footer .container {
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
+.footer .row {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo-text {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 1rem 0 0 0;
+}
+
+.footer .col-1-2 {
+    display: flex;
+    align-items: center;
+}
+
+.footer img {
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.footer .social.nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer .social-item {
+    display: inline-block;
+}
+
+.footer .social-link {
+    display: inline-block;
+    color: #f2f2f2;
+    transition: color 0.3s ease;
+}
+
+
+.footer svg {
+    transition: transform 0.3s ease;
+}
+
+.footer svg:hover {
+    transform: scale(1.1);
+}
+
+.footer p {
+    margin: 0;
+    color: #cccccc;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.footer .footer-copyright {
+    text-align: center;
+    color: #777;
+}
+
 
 /* Menu */
 .menu {
@@ -300,23 +591,6 @@ nav a:hover {
     color: #fff;
 }
 
-/* Couleurs spécifiques pour chaque sous-menu de niveau 2 */
-.submenu-item-finish .submenu-link::before {
-    background-color: #ec2323;
-}
-
-.submenu-item-currently .submenu-link::before {
-    background-color: #35bc5e;
-}
-
-.submenu-item-pause .submenu-link::before {
-    background-color: #e27318;
-}
-
-.submenu-item-begin .submenu-link::before {
-    background-color: #1118d9;
-}
-
 
 /* Library Menu */
 .lib-menu {
@@ -328,14 +602,14 @@ nav a:hover {
     align-items: center;
     position: relative;
     border-radius: 8px;
-    top: calc(4rem + 50px);
     bottom: 1rem;
+    top: 0rem;
     left: 0;
     background-color: #ffffff;
     border: 1px solid #ccc;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    margin-top: -5rem;
+    margin-top: 0rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -532,4 +806,322 @@ nav a:hover {
 
 .modal-content button:hover {
     background-color: #45a049;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 25%;
+    padding: 10px;
+    max-height: 700px;
+    overflow-y: auto;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-btn {
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.dropdown-content input {
+    width: 90%;
+    padding: 5px;
+    margin: 10px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    border: 1px solid #333;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.pagination a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.manga-list, .anime-list, .serie-list, .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+ }
+
+ .card-manga, .card-anime, .card-serie, .card-movie {
+    width: 250px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #090909;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin: 1rem;
+ }
+
+ .card-manga:hover, .card-anime:hover, .card-serie:hover, .card-movie:hover {
+    transform: translateY(-5px);
+ }
+
+ .manga-cover, .anime-cover, .series-cover, .movie-poster {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+ }
+
+ .manga-title, .anime-title, .series-title, .movie-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+ }
+
+ .manga-english-title, .anime-english-title {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+ }
+
+ .manga-link, .anime-link, .series-link, .movie-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #000000;
+    text-decoration: none;
+    border: 1px solid #000000;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    width: 175px;
+    text-align: center;
+ }
+
+ .manga-link:hover, .anime-link:hover, .series-link:hover, .movie-link:hover {
+    background-color: #000000;
+    color: #ffffff;
+ }
+
+ .add-manga, .add-anime, .add-serie, .add-movie, .add-btn {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #000000;
+    text-decoration: none;
+    border: 1px solid #000000;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0.5rem;
+    width: 175px;
+    text-align: center;
+ }
+
+ .add-manga:hover, .add-anime:hover, .add-serie:hover, .add-movie:hover {
+    background-color: #000000;
+    color: #ffffff;
+ }
+
+ .collection-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.collection-item {
+    width: 220px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+}
+
+.collection-item:hover {
+    transform: scale(1.05);
+}
+
+.collection-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.collection-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.collection-item h4 {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.collection-item p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.remove-btn {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #000;
+    text-decoration: none;
+    border: 1px solid #000;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 10px;
+    width: 175px;
+}
+
+.remove-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+h1 {
+    text-align: left;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.search-bar input {
+    width: 0;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    padding: 0 0 0 15px;
+    border-radius: 30px;
+    transition: 0.8s;
+}
+
+.search-bar i {
+    font-size: 20px;
+    position: absolute;
+    color: #333;
+    right: 10px;
+    transition: 0.8s;
+}
+
+.search-bar:hover {
+    width: 300px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.search-bar:hover input {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.search-bar:hover i {
+    opacity: 1;
+}
+
+.manga-collection, .anime-collection, .serie-collection, .movie-collection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.details {
+    padding: 20px;
+}
+
+.details img {
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.info p span {
+    font-weight: bold;
+    color: #3498db;
+}
+
+.genres {
+    margin-bottom: 15px;
+}
+
+.return-link {
+    text-decoration: none;
+    color: #fff;
+    background-color: #000000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
